@@ -105,6 +105,7 @@ class NavePasajero inherits Nave {
   
   method descargarComida(valor) {
     comida = (comida - valor).max(0)
+    racionesServidas += valor
   }
   
   method descargarBebida(valor) {
@@ -123,7 +124,6 @@ class NavePasajero inherits Nave {
   
   override method avisar() {
     self.descargarComida(pasajeros)
-    racionesServidas += pasajeros
     self.descargarBebida(pasajeros * 2)
   }
   
