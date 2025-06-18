@@ -1,9 +1,24 @@
-import example.pepita
+import naves.*
 
-describe "group of tests for pepita" {
+describe "Grupo de test para las naves" {
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+const nave = new NaveBaliza(
+  velocidad = 50000,
+  direccion = 5,
+  combustible = 10000,
+  color = "verde"
+)
+
+  test "la nave en estado original tiene velocidad de 50000 y 5 de direccion" {
+    assert.equals(50000, nave.velocidad())
+    assert.equals(5, nave.direccion())
+  }
+
+  test "la nave acelera 5000 llegando a 55000 y se aleja un poco del sol quedando a 4" {
+    nave.acelerar(5000)
+    nave.alejarseUnPocoDelSol()
+    assert.equals(55000, nave.velocidad())
+    assert.equals(4, nave.direccion())
   }
 
 }
