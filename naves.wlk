@@ -3,6 +3,15 @@ class Nave {
   var direccion
   var property combustible
   
+  method initialize() {
+    if (!self.velocidad().between(0, 100000)) self.error(
+        "La velocidad debe estar entre 0 y 100.000kms/seg"
+      )
+    if (!self.direccion().between(-10, 10)) self.error(
+        "La direccion debe estar entre -10 y 10"
+      )
+  }
+  
   method direccion() = direccion
   
   method velocidad() = velocidad
@@ -217,10 +226,3 @@ class NaveDeCombateSigilosa inherits NaveCombate {
     self.ponerseInvisible()
   }
 }
-
-const nave = new NaveBaliza(
-  velocidad = 50000,
-  direccion = 5,
-  combustible = 10000,
-  color = "verde"
-)
